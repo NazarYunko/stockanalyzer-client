@@ -29,7 +29,7 @@ export class TickerService {
     if (filterParams.sector && filterParams.direction) {
       params = params.set("sort", `${filterParams.sort},${filterParams.direction}`);
     }
-    params = params.set("page", String(filterParams.page)).set("size", String(filterParams.size));
+    params = params.set("page", String(filterParams.page)).set("size", String(filterParams.count));
 
     return this._httpClient.get<Page<Ticker>>('/tickers', {
       params: params

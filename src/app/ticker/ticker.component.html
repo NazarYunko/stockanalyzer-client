@@ -7,21 +7,21 @@
       <mat-toolbar style="background: #424242">
         <mat-form-field appearance="fill" class="header-sort">
           <mat-label>Country</mat-label>
-          <mat-select [(value)]="filterParams.country" (valueChange)="setFilter()">
+          <mat-select [(value)]="filterParams.country" (valueChange)="startFilter()">
             <mat-option [value]="'all'">None</mat-option>
             <mat-option *ngFor="let one of country" [value]="one.name">{{one.name}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill" class="header-sort">
           <mat-label>industry</mat-label>
-          <mat-select [(value)]="filterParams.industry" (valueChange)="setFilter()">
+          <mat-select [(value)]="filterParams.industry" (valueChange)="startFilter()">
             <mat-option [value]="'all'">None</mat-option>
             <mat-option *ngFor="let one of industries" [value]="one.name">{{one.name}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill" class="header-sort">
           <mat-label>sector</mat-label>
-          <mat-select [(value)]="filterParams.sector" (valueChange)="setFilter()">
+          <mat-select [(value)]="filterParams.sector" (valueChange)="startFilter()">
             <mat-option [value]="'all'">None</mat-option>
             <mat-option *ngFor="let one of sector" [value]="one.name">{{one.name}}</mat-option>
           </mat-select>

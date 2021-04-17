@@ -132,6 +132,11 @@ export class TickerComponent implements OnInit {
     }
   }
 
+  startFilter() {
+    this.filterParams.page = 0;
+    this.filter();
+  }
+
   onPage(o: any) {
     console.log(o);
     this.filterParams.count = o.pageSize;

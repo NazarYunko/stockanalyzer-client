@@ -63,7 +63,7 @@ export class TickerComponent implements OnInit {
     count: 10,
     page: 0,
     sort: 'name',
-    direction: 'ASC',
+    direction: 'asc',
   };
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,

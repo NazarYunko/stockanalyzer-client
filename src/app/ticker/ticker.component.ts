@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Sort} from "@angular/material/sort";
 import {ActivatedRoute, Router} from "@angular/router";
+import {TickerService} from "../shared/service/server/ticker.service";
+import {Ticker} from "../shared/model/Ticker";
+import {Page} from "../shared/model/page";
 
 const ELEMENT_DATA: any[] = [
   {name: 'name', symbol: "symbol", country: 'country', sector: 'sector', industry: "industry"},
@@ -51,7 +54,8 @@ const ELEMENT_DATA: any[] = [
 })
 export class TickerComponent implements OnInit {
   displayedColumns: string[] = ['name', 'symbol', 'country', 'sector', 'industry'];
-  dataSource = ELEMENT_DATA;
+
+  dataSource: Page<Ticker>;
   filterParams = {
     country: 'all',
     industry: 'all',
@@ -62,7 +66,8 @@ export class TickerComponent implements OnInit {
     direction: 'ASC',
   };
 
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router) {
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
+              private _tickerService: TickerService) {
     _activatedRoute.queryParams.subscribe(value => {
       if (value['country']) {
         this.filterParams.country = value['country'];
@@ -106,8 +111,19 @@ export class TickerComponent implements OnInit {
     }
   }
 
-  filter() {
+  onPage(o: any) {
+    console.log(o);
+    this.filterParams.count = o.pageSize;
+    this.filterParams.page = o.pageIndex;
+    this.setFilter();
+  }
 
+  filter() {
+    this._tickerService.findAll(this.filterParams).subscribe(value => {
+      this.dataSource = value;
+    }, error => {
+      console.error(error);
+    })
   }
 
   setDefaultParams(key: string, value: string) {

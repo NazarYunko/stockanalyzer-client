@@ -1,24 +1,38 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Ticker} from '../../model/Ticker';
 import {TickerItem} from "../../model/TickerItem";
+import {Page} from "../../model/page";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TickerService {
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) {
+  }
 
-  findAll(country: string, industry: string, sector: string, page: number, size: number): Observable<Ticker[]> {
-    return this._httpClient.get<Ticker[]>('/tickers', {
-      params: new HttpParams().set("country", country)
-        .set("industry", industry)
-        .set("sector", sector)
-        .set("page", String(page))
-        .set("size", String(size))
+  findAll(filterParams: any): Observable<Page<Ticker>> {
+    let params: HttpParams = new HttpParams();
+
+    if (filterParams.country != 'all') {
+      params = params.set("country", filterParams.country);
+    }
+    if (filterParams.industry != 'all') {
+      params = params.set("industry", filterParams.industry);
+    }
+    if (filterParams.sector != 'all') {
+      params = params.set("sector", filterParams.sector);
+    }
+    if (filterParams.sector && filterParams.direction) {
+      params = params.set("sort", `${filterParams.sort},${filterParams.direction}`);
+    }
+    params = params.set("page", String(filterParams.page)).set("size", String(filterParams.size));
+
+    return this._httpClient.get<Page<Ticker>>('/tickers', {
+      params: params
     })
       .pipe(catchError(err => throwError(err)));
   }

@@ -77,7 +77,7 @@
 
       </mat-toolbar>
 
-      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)"
+      <table mat-table [dataSource]="dataSource?.content" matSort (matSortChange)="sortData($event)"
              [matSortDirection]="filterParams?.direction" [matSortActive]="filterParams?.sort">
 
         <ng-container matColumnDef="name">
@@ -107,6 +107,11 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+      <mat-paginator [length]="dataSource?.totalElements"
+                     [pageSize]="filterParams?.count"
+                     [pageIndex]="filterParams?.page"
+                     [pageSizeOptions]="[5, 10, 25, 100,200,300,400,500,600,700,800,900,1000]" (page)="onPage($event)">
+      </mat-paginator>
     </div>
     <div class="right-container"></div>
     <div class="right-container-fixed">

@@ -134,7 +134,7 @@ export class TickerComponent implements OnInit {
 
   startFilter() {
     this.filterParams.page = 0;
-    this.filter();
+    this.setFilter();
   }
 
   onPage(o: any) {

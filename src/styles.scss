@@ -14,3 +14,9 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-sort-header-container{
+justify-content: center;
+}
+.mat-select-panel{
+  transform: scale(0.93)!important;
+}

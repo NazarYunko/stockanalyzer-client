@@ -9,7 +9,6 @@
   width: 100vw;
   display: flex;
   justify-content: space-around;
-  background: #424242;
   min-height: calc(100vh - 64px);
   overflow-x: hidden;
   .inner-table {
@@ -27,7 +26,6 @@
   .right-container {
     width: calc(100vw - 63vw - 3vw);
     min-height: calc(100vh - 64px);
-    background: #424242;
 
 
   }
@@ -38,7 +36,6 @@
     right: 1.5vw;
     top: 64px;
     min-height: calc(100vh - 64px);
-    background: #424242;
 
   }
 }

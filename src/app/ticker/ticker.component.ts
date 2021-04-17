@@ -72,6 +72,23 @@ export class TickerComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
               private _tickerService: TickerService) {
+
+    this._tickerService.findAllCountries().subscribe(value => {
+      this.country = value;
+    }, error => {
+      console.error(error);
+    })
+    this._tickerService.findAllIndustries().subscribe(value => {
+      this.industries = value;
+    }, error => {
+      console.error(error);
+    })
+    this._tickerService.findAllSectors().subscribe(value => {
+      this.sector = value;
+    }, error => {
+      console.error(error);
+    })
+
     _activatedRoute.queryParams.subscribe(value => {
       if (value['country']) {
         this.filterParams.country = value['country'];

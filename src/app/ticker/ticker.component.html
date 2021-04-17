@@ -1,10 +1,10 @@
 <div class="container">
-  <mat-toolbar>
-    <span>Скринер акций</span>
+  <mat-toolbar color="primary">
+    <span>Stock screener</span>
   </mat-toolbar>
   <div class="table-container">
     <div class="inner-table">
-      <mat-toolbar >
+      <mat-toolbar color="primary" style="margin-top: 10px">
         <mat-form-field appearance="fill" class="header-sort">
           <mat-label>Country</mat-label>
           <mat-select [(value)]="filterParams.country" (valueChange)="startFilter()">

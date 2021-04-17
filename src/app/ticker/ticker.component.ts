@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {TickerService} from "../shared/service/server/ticker.service";
 import {Ticker} from "../shared/model/Ticker";
 import {Page} from "../shared/model/page";
+import {TickerItem} from "../shared/model/TickerItem";
 
 const ELEMENT_DATA: any[] = [
   {name: 'name', symbol: "symbol", country: 'country', sector: 'sector', industry: "industry"},
@@ -65,6 +66,9 @@ export class TickerComponent implements OnInit {
     sort: 'name',
     direction: 'asc',
   };
+  country: TickerItem[] = [];
+  sector: TickerItem[] = [];
+  industries: TickerItem[] = [];
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
               private _tickerService: TickerService) {

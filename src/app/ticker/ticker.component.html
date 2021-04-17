@@ -6,72 +6,24 @@
     <div class="inner-table">
       <mat-toolbar style="background: #424242">
         <mat-form-field appearance="fill" class="header-sort">
-          <mat-label>Select an option</mat-label>
-          <mat-select>
-            <mat-option>None</mat-option>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
+          <mat-label>Country</mat-label>
+          <mat-select [(value)]="filterParams?.country" (valueChange)="setFilter()">
+            <mat-option [value]="'all'">None</mat-option>
+            <mat-option *ngFor="let one of country" [value]="one.name">{{one.name}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill" class="header-sort">
-          <mat-label>Select an option</mat-label>
-          <mat-select>
-            <mat-option>None</mat-option>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
+          <mat-label>industry</mat-label>
+          <mat-select [(value)]="filterParams?.industry" (valueChange)="setFilter()">
+            <mat-option [value]="'all'">None</mat-option>
+            <mat-option *ngFor="let one of industries" [value]="one.name">{{one.name}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill" class="header-sort">
-          <mat-label>Select an option</mat-label>
-          <mat-select>
-            <mat-option>None</mat-option>
-            <mat-option value="option1">Option 1</mat-option>
-            <mat-option value="option2">Option 2</mat-option>
-            <mat-option value="option3">Option 3</mat-option>
+          <mat-label>sector</mat-label>
+          <mat-select [(value)]="filterParams?.sector" (valueChange)="setFilter()">
+            <mat-option [value]="'all'">None</mat-option>
+            <mat-option *ngFor="let one of sector" [value]="one.name">{{one.name}}</mat-option>
           </mat-select>
         </mat-form-field>
 

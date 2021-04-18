@@ -21,10 +21,10 @@ export class StockService {
       .set("from", "")
       .set("to", "");
 
-    return this._httpClient.get<Stock>('/stocks/' + ticker, {
+    return this._httpClient.get<any>('/stocks/' + ticker, {
       params: params
     })
-      .pipe(catchError(err => throwError(err)));
+      .pipe(map(response=>response.stock), catchError(err => throwError(err)));
   }
 
 }

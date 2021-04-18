@@ -1,35 +1,32 @@
 <mat-toolbar color="primary">
-  <span>name : {{stock?.name}}</span>
-  <span>stockExchange : {{stock?.stockExchange}}</span>
-  <span>currency : {{stock?.currency}}</span>
-  <span>symbol : {{stock?.symbol}}</span>
+  <span>Stock ticker: {{stock?.symbol}}</span>
+  <span>Stock name: {{stock?.name}}</span>
+  <span>Exchange: {{stock?.stockExchange}}</span>
+  <span>Currency: {{stock?.currency}}</span>
 </mat-toolbar>
 <div class="container">
 <div id="technical-analysis"></div>
 <table>
   <tr>
-    <th colspan="19" class="mat-toolbar mat-primary">stock quotes</th>
+    <th colspan="19" class="mat-toolbar mat-primary">Stock Quotes</th>
   </tr>
   <tr>
-    <td class="border">ask</td>
-    <td class="border">askSize</td>
-    <td class="border">bid</td>
-    <td class="border">bidSize</td>
-    <td class="border">price</td>
-    <td class="border">lastTradeSize</td>
-    <td class="border">lastTradeDateStr</td>
-    <td class="border">lastTradeTimeStr</td>
-    <td class="border">lastTradeTime</td>
-    <td class="border">open</td>
-    <td class="border">previousClose</td>
-    <td class="border">dayLow</td>
-    <td class="border">dayHigh</td>
-    <td class="border">yearLow</td>
-    <td class="border">yearHigh</td>
-    <td class="border">priceAvg50</td>
-    <td class="border">priceAvg200</td>
-    <td class="border">volume</td>
-    <td class="border">avgVolume</td>
+    <td class="border">Ask</td>
+    <td class="border">Ask size</td>
+    <td class="border">Bid</td>
+    <td class="border">Bid size</td>
+    <td class="border">Price</td>
+    <td class="border">Last trade time</td>
+    <td class="border">Open</td>
+    <td class="border">Previous close</td>
+    <td class="border">Day low</td>
+    <td class="border">Day high</td>
+    <td class="border">Year low</td>
+    <td class="border">Year high</td>
+    <td class="border">Price average 50 days</td>
+    <td class="border">Price average 200 days</td>
+    <td class="border">Volume</td>
+    <td class="border">Average volume</td>
 
   </tr>
   <tr>
@@ -38,10 +35,7 @@
     <td class="border">{{stock?.quote?.bid}}</td>
     <td class="border">{{stock?.quote?.bidSize}}</td>
     <td class="border">{{stock?.quote?.price}}</td>
-    <td class="border">{{stock?.quote?.lastTradeSize}}</td>
-    <td class="border">{{stock?.quote?.lastTradeDateStr}}</td>
-    <td class="border">{{stock?.quote?.lastTradeTimeStr}}</td>
-    <td class="border">{{stock?.quote?.lastTradeTime}}</td>
+    <td class="border">{{stock?.quote?.lastTradeTime|date}} {{stock?.quote?.lastTradeTime|time}}</td>
     <td class="border">{{stock?.quote?.open}}</td>
     <td class="border">{{stock?.quote?.previousClose}}</td>
     <td class="border">{{stock?.quote?.dayLow}}</td>
@@ -56,62 +50,40 @@
 </table>
 <table>
   <tr>
-    <th colspan="18" class="mat-toolbar mat-primary">stock stats</th>
+    <th colspan="18" class="mat-toolbar mat-primary">Stock Stats</th>
   </tr>
   <tr>
-    <td class="border">marketCap</td>
-    <td class="border">sharesFloat</td>
-    <td class="border">sharesOutstanding</td>
-    <td class="border">sharesOwned</td>
-    <td class="border">eps</td>
-    <td class="border">pe</td>
-    <td class="border">peg</td>
-    <td class="border">epsEstimateCurrentYear</td>
-    <td class="border">epsEstimateNextQuarter</td>
-    <td class="border">epsEstimateNextYear</td>
-    <td class="border">priceBook</td>
-    <td class="border">priceSales</td>
-    <td class="border">bookValuePerShare</td>
-    <td class="border">revenue</td>
-    <td class="border">EBITDA</td>
-    <td class="border">oneYearTargetPrice</td>
-    <td class="border">shortRatio</td>
-    <td class="border">earningsAnnouncement</td>
+    <td class="border">Market capitalization</td>
+    <td class="border">Shared outstanding</td>
+    <td class="border">EPS</td>
+    <td class="border">PE</td>
+    <td class="border">EPS estimate current year</td>
+    <td class="border">PB</td>
+    <td class="border">Book value per share</td>
+    <td class="border">Earnings announcement</td>
   </tr>
   <tr>
     <td class="border">{{stock?.stats?.marketCap}}</td>
-    <td class="border">{{stock?.stats?.sharesFloat}}</td>
     <td class="border">{{stock?.stats?.sharesOutstanding}}</td>
-    <td class="border">{{stock?.stats?.sharesOwned}}</td>
     <td class="border">{{stock?.stats?.eps}}</td>
     <td class="border">{{stock?.stats?.pe}}</td>
-    <td class="border">{{stock?.stats?.peg}}</td>
     <td class="border">{{stock?.stats?.epsEstimateCurrentYear}}</td>
-    <td class="border">{{stock?.stats?.epsEstimateNextQuarter}}</td>
-    <td class="border">{{stock?.stats?.epsEstimateNextYear}}</td>
     <td class="border">{{stock?.stats?.priceBook}}</td>
-    <td class="border">{{stock?.stats?.priceSales}}</td>
     <td class="border">{{stock?.stats?.bookValuePerShare}}</td>
-    <td class="border">{{stock?.stats?.revenue}}</td>
-    <td class="border">{{stock?.stats?.EBITDA}}</td>
-    <td class="border">{{stock?.stats?.oneYearTargetPrice}}</td>
-    <td class="border">{{stock?.stats?.shortRatio}}</td>
-    <td class="border">{{stock?.stats?.earningsAnnouncement}}</td>
+    <td class="border">{{stock?.stats?.earningsAnnouncement|date}} {{stock?.stats?.earningsAnnouncement|time}}</td>
   </tr>
 </table>
 <table>
   <tr>
-    <th colspan="7" class="mat-toolbar mat-primary">stock dividend</th>
+    <th colspan="7" class="mat-toolbar mat-primary">Stock dividends</th>
   </tr>
   <tr>
-    <td class="border">payDate</td>
-    <td class="border">exDate</td>
-    <td class="border">annualYield</td>
-    <td class="border">annualYieldPercent</td>
+    <td class="border">Pay date</td>
+    <td class="border">Annual yield</td>
+    <td class="border">Annual yield percent</td>
   </tr>
   <tr>
-    <td class="border">{{stock?.dividend?.payDate}}</td>
-    <td class="border">{{stock?.dividend?.exDate}}</td>
+    <td class="border">{{stock?.dividend?.payDate|date}} {{stock?.dividend?.payDate|time}}</td>
     <td class="border">{{stock?.dividend?.annualYield}}</td>
     <td class="border">{{stock?.dividend?.annualYieldPercent}}</td>
   </tr>

@@ -60,9 +60,30 @@ $stockanalyzer-client-theme: mat-light-theme($stockanalyzer-client-primary, $sto
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-table{
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+table {
   border-collapse: collapse;
 }
 
+.spacer {
+  flex: 1 1 auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.active {
+  color: #63b4f6;
+}
+.margin-left-15px{
+  margin-left: 15px;
+}

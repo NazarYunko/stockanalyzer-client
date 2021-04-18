@@ -4,6 +4,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Ticker} from '../../model/Ticker';
 import {Page} from "../../model/page";
+import {Stock} from '../../model/Stock';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,14 @@ export class StockService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  find(ticker: string): Observable<Page<Ticker>> {
+  find(ticker: string): Observable<Stock> {
     let params: HttpParams = new HttpParams();
 
     params = params.set("interval", "DAILY")
       .set("from", "")
       .set("to", "");
 
-    return this._httpClient.get<Page<Ticker>>('/stocks/' + ticker, {
+    return this._httpClient.get<Stock>('/stocks/' + ticker, {
       params: params
     })
       .pipe(catchError(err => throwError(err)));

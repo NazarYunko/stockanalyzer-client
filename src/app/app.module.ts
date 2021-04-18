@@ -10,11 +10,17 @@ import {UrlInterceptor} from "./@interceptor/url.interceptor";
 import {MaterialModule} from "./shared/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PipeModule} from "./@pipe/pipe.module";
+import { WidgetForexCrossRatesComponent } from './widget-forex-cross-rates/widget-forex-cross-rates.component';
+import { CryptoMktScreenerComponent } from './crypto-mkt-screener/crypto-mkt-screener.component';
+import { StockInfoComponent } from './stock-info/stock-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TickerComponent
+    TickerComponent,
+    WidgetForexCrossRatesComponent,
+    CryptoMktScreenerComponent,
+    StockInfoComponent
   ],
   imports: [
     PipeModule,

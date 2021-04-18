@@ -58,7 +58,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/stock-info/{{row.symbol}}"></tr>
       </table>
       <mat-paginator [length]="dataSource?.totalElements"
                      [pageSize]="filterParams?.count"
@@ -68,7 +68,8 @@
     </div>
     <div class="right-container"></div>
     <div class="right-container-fixed">
-      <iframe src="http://localhost:80/w/market-overview" frameborder="0" style="width: 62vw;height: calc(100vh - 64px)"></iframe>
+      <iframe src="http://localhost:80/w/market-overview" frameborder="0"
+              style="width: 62vw;height: calc(100vh - 64px)"></iframe>
     </div>
   </div>
 </div>

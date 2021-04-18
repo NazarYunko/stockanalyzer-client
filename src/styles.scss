@@ -27,17 +27,17 @@ $mat-custom: (
     50: $dark-primary-text,
     100: $dark-primary-text,
     200: $dark-primary-text,
-    300: black,
-    400: black,
-    500: black,
-    600: black,
-    700: black,
-    800: black,
-    900: black,
-    A100: black,
-    A200: black,
-    A400: black,
-    A700: black,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
   )
 );
 
@@ -62,3 +62,7 @@ $stockanalyzer-client-theme: mat-light-theme($stockanalyzer-client-primary, $sto
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+table{
+  border-collapse: collapse;
+}
+
